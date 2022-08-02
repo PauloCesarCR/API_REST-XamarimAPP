@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Models
@@ -8,8 +9,9 @@ namespace WebApplication1.Models
     {
         public int Id { get; set; }
 
-        [Required]
+
         public string firstName { get; set; }
+
 
         public string surName { get; set; }
 

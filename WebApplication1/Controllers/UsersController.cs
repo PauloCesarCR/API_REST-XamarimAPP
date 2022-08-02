@@ -1,56 +1,64 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using WebApplication1.Models;
+using WebApplication1.Models.Entities.Users;
 using WebApplication1.Repositorio;
 
 namespace WebApplication1.Controllers
 {
+    [ApiController]
+    [Route("api/[Controller]")]
 
     public class UsersController : Controller
     {
-        private readonly ILogger<UsersController> _logger;
-
-        public UsersController(ILogger<UsersController> logger)
+        private readonly IUsersRepository _repositorio;
+        public UsersController(IUsersRepository repositorio)
         {
-            _logger = logger;
+            _repositorio = repositorio;
         }
 
-        private readonly IUsersRepositorio _usersRepositorio;
-        public UsersController(IUsersRepositorio usersRepositorio)
+        [HttpGet("{id}")]
+        public IActionResult Get([FromRoute] UserID user)
         {
-            _usersRepositorio = usersRepositorio;
-        }
-        public IActionResult Index()
-        {
-            return View(10);
-        }
+            var userFound = _repositorio.Get(user.id);
 
-        public IActionResult Adicionar()
-        {
-            return View();
-        }
-        public IActionResult Editar()
-        {
-            return View();
-        }
-        public IActionResult Apagar()
-        {
-            return View();
+            return Ok(userFound);
         }
 
         [HttpPost]
-
-        public IActionResult Criar(UserModel user)
+        public IActionResult Post([FromBody]PostUsersRequest user)
         {
-            _usersRepositorio.Adicionar(user);
-            return RedirectToAction("Index");
+            if (_repositorio.Create(user))
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
 
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+ 
+        public IActionResult Put([FromBody] PutUserRequest user)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (_repositorio.Update(user))
+            {
+                return Ok();
+                
+            }
+            return BadRequest();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            try
+            {
+                _repositorio.Delete(id);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+
+            }
+
+        }
+
     }
 }

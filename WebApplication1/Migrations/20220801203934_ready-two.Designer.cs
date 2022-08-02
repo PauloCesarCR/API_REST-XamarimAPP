@@ -12,8 +12,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20220725203356_InitialDatabase")]
-    partial class InitialDatabase
+    [Migration("20220801203934_ready-two")]
+    partial class readytwo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

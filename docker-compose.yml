@@ -1,8 +1,11 @@
-version: '3.9'
+version: '3'
+
+volumes:
+ data:
 
 services:
   webapplication:
-   image: ${DOCKER_REGISTRY-}webapplication
+   image: ${DOCKER_REGISTRY-}api
    build:
      context: .
      dockerfile: .
@@ -11,10 +14,15 @@ services:
    depends_on:
     - database
 
-  database:
-   image: postgres:14
+  dbPostgres:
+   image: postgres:latest
+   restart: always
    ports: 
-    - 5432:5432
+    - 5441:5432
    environment:
-    - POSTGRES_PASSWORD=123456
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres 
+      POSTGRES_DB: BancoDeUsers 
+   volumes:
+   - data:/var/lib/postgresql/data
 
