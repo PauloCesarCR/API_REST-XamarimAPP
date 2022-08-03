@@ -4,12 +4,12 @@
     "\\WebApplication1",
     "\\WebApplication1\\Controllers",
     "\\WebApplication1\\Data",
-    "\\WebApplication1\\Migrations",
     "\\WebApplication1\\Models",
+    "\\WebApplication1\\Models\\Entities",
+    "\\WebApplication1\\Models\\Entities\\Users",
     "\\WebApplication1\\obj",
-    "\\WebApplication1\\Properties",
-    "\\WebApplication1\\Repositorio"
+    "\\WebApplication1\\Views"
   ],
-  "SelectedNode": "\\WebApplication1\\appsettings.json",
+  "SelectedNode": "\\Dockerfile",
   "PreviewInSolutionExplorer": false
 }

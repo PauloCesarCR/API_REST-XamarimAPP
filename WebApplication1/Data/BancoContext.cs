@@ -9,11 +9,6 @@ namespace WebApplication1.Data
         public BancoContext(DbContextOptions<BancoContext> options) : base(options)
         {
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.UseSerialColumns();
-
-        }
         public DbSet<UserModel> Users { get; set; }
     }
 }

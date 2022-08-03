@@ -7,11 +7,9 @@ namespace WebApplication1.Models
 {
     public class UserModel
     {
-        public int Id { get; set; }
-
+        public string id { get; set; }
 
         public string firstName { get; set; }
-
 
         public string surName { get; set; }
 

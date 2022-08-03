@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hSTcY+4pyeDT/azbtmbIQCD+ptngsJDxqPgZDvvQCxyEfBtwzSLo2lwW+9HzXkmUkcHZAo7b4sRBFenfSlXMow==",
+  "dgSpecHash": "RDJaHT4W6plJtEQ3g9w+T8aCF2A/BuH6ilqTJ5b8xMwme6JEwctQo4Ow6l7yjidPRNpu7H7K7CF4dpG5LSK9GA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\paulo\\Desktop\\intelitrader\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\paulo\\Desktop\\two\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\paulo\\.nuget\\packages\\entityframework\\6.4.0\\entityframework.6.4.0.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\entityframework6.npgsql\\6.4.3\\entityframework6.npgsql.6.4.3.nupkg.sha512",

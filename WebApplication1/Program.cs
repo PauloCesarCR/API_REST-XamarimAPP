@@ -1,25 +1,23 @@
-
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
-using WebApplication1.Repositorio;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BancoContext>(
     o => o.UseNpgsql(builder.Configuration.GetConnectionString("BancoContext")));
 
 
-builder.Services.AddScoped<IUsersRepository, UsersRepository>();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Meu Swagger", Version = "v1" });
 });
-
 
 var app = builder.Build();
 
@@ -34,7 +32,6 @@ if (!app.Environment.IsDevelopment())
 {
 }
 
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -47,3 +44,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+

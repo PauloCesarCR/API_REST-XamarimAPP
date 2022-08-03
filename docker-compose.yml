@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 volumes:
  data:
@@ -8,21 +8,33 @@ services:
    image: ${DOCKER_REGISTRY-}api
    build:
      context: .
-     dockerfile: .
+     dockerfile: ./Dockerfile
    ports:
     - "8081:80"
    depends_on:
-    - database
+    - dbpostgres
+   links:
+     - dbpostgres
+   networks:
+      - postgres-compose-network
 
-  dbPostgres:
+  dbpostgres:
    image: postgres:latest
    restart: always
    ports: 
     - 5441:5432
+   expose: 
+    - 5441
    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres 
-      POSTGRES_DB: BancoDeUsers 
+     - POSTGRES_DB=BancoDeUsers
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=supersecretpassword
    volumes:
    - data:/var/lib/postgresql/data
+   networks:
+   - postgres-compose-network
+
+networks: 
+ postgres-compose-network: 
+  driver: bridge
 

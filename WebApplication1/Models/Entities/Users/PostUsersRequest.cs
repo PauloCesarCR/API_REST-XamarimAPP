@@ -9,7 +9,5 @@ namespace WebApplication1.Models.Entities.Users
         public string surName { get; set; }
 
         public int age { get; set; }
-
-        public DateTime creationDate { get; set; }
     }
 }
