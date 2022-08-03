@@ -22,9 +22,9 @@ services:
    image: postgres:latest
    restart: always
    ports: 
-    - 5441:5432
+    - 5432:5432
    expose: 
-    - 5441
+    - 5432
    environment:
      - POSTGRES_DB=BancoDeUsers
      - POSTGRES_USER=postgres
