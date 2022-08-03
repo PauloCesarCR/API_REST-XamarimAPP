@@ -6,7 +6,7 @@ namespace WebApplication1.Models.Entities.Users
     {
         public string firstName { get; set; }
 
-        public string surName { get; set; }
+        public string? surName { get; set; }
 
         public int age { get; set; }
     }

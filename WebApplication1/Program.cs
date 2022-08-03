@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BancoContext>(
@@ -32,11 +33,22 @@ if (!app.Environment.IsDevelopment())
 {
 }
 
+using ( var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<BancoContext>();
+    if (context.Database.GetPendingMigrations().Any())
+    {
+        context.Database.Migrate();
+    }
+}
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+    
 app.UseAuthorization();
 
 app.MapControllerRoute(

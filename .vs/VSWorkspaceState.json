@@ -10,6 +10,6 @@
     "\\WebApplication1\\obj",
     "\\WebApplication1\\Views"
   ],
-  "SelectedNode": "\\Dockerfile",
+  "SelectedNode": "\\WebApplication1\\appsettings.Development.json",
   "PreviewInSolutionExplorer": false
 }

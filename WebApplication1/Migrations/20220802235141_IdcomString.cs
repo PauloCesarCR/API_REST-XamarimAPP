@@ -15,7 +15,7 @@ namespace WebApplication1.Migrations
                 {
                     id = table.Column<string>(type: "text", nullable: false),
                     firstName = table.Column<string>(type: "text", nullable: false),
-                    surName = table.Column<string>(type: "text", nullable: false),
+                    surName = table.Column<string>(type: "text", nullable: true),
                     age = table.Column<int>(type: "integer", nullable: false),
                     creationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },

@@ -3,6 +3,8 @@ using WebApplication1.Models.Entities.Users;
 using WebApplication1.Data;
 using WebApplication1.Models;
 using System.Data.Entity;
+using System;
+using System.Diagnostics;
 
 namespace WebApplication1.Controllers
 {
@@ -12,6 +14,7 @@ namespace WebApplication1.Controllers
     public class UsersController : Controller
     {
         private readonly BancoContext _context;
+
         public UsersController(BancoContext context)
         {
             _context = context;
@@ -22,7 +25,6 @@ namespace WebApplication1.Controllers
         {
             return _context.Users;
         }
-
 
         [HttpGet("{id}")]
         public ActionResult<UserModel> GetUserId([FromRoute]string id)
@@ -39,15 +41,10 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult<UserModel> PostUser(PostUsersRequest user)
         {
-            int idAtual = _context.Users.Count() + 1;
             try
-            {
-             var id = $"b{idAtual-1}f{idAtual}a-b{idAtual + 1}f{idAtual +2}a-b{idAtual -2}f" +
-                    $"{idAtual+4}a-b{idAtual- 4}f{idAtual-3}a-b{idAtual + 3}f{idAtual}a";
-
+            {        
               var userAdd = new UserModel
                 {
-                    id = id,
                     firstName = user.firstName,
                     surName = user.surName,
                     age = user.age,
@@ -57,7 +54,7 @@ namespace WebApplication1.Controllers
                 _context.Users.Add(userAdd);
                 _context.SaveChanges();
 
-                return CreatedAtAction("GetUserId", new UserModel { id = userAdd.id }, userAdd);
+                return CreatedAtAction("GetUserId", new UserModel { id = userAdd.id}, userAdd);
             }
             catch 
             {
