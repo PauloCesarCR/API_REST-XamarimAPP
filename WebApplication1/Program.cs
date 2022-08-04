@@ -2,13 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-
+using WebApplication1.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 
 builder.Services.AddDbContext<BancoContext>(
     o => o.UseNpgsql(builder.Configuration.GetConnectionString("BancoContext")));

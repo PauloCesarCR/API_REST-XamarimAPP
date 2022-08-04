@@ -8,8 +8,9 @@
     "\\WebApplication1\\Models\\Entities",
     "\\WebApplication1\\Models\\Entities\\Users",
     "\\WebApplication1\\obj",
+    "\\WebApplication1\\Repositorio",
     "\\WebApplication1\\Views"
   ],
-  "SelectedNode": "\\WebApplication1\\appsettings.Development.json",
+  "SelectedNode": "\\Dockerfile",
   "PreviewInSolutionExplorer": false
 }

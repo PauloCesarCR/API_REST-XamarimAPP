@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models.Entities.Users;
-using WebApplication1.Data;
-using WebApplication1.Models;
-using System.Data.Entity;
-using System;
-using System.Diagnostics;
+using WebApplication1.Repositorio;
 
 namespace WebApplication1.Controllers
 {
@@ -13,90 +9,67 @@ namespace WebApplication1.Controllers
 
     public class UsersController : Controller
     {
-        private readonly BancoContext _context;
-
-        public UsersController(BancoContext context)
+        private readonly IUsersRepository _repositorio;
+        public UsersController(IUsersRepository repositorio)
         {
-            _context = context;
+            _repositorio = repositorio;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<UserModel>> GetUsers()
+        public IActionResult GetAllUsers()
         {
-            return _context.Users;
-        }
+            var users = _repositorio.GetAllUsers();
 
-        [HttpGet("{id}")]
-        public ActionResult<UserModel> GetUserId([FromRoute]string id)
-        {
-            var user = _context.Users.Find(id);
-
-            if (user == null)
+            if (users != null)
             {
-                return NotFound();
+            return Ok(users);
             }
-            return Ok(user);
+            return NotFound();
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetById([FromRoute]string id)
+        {
+            var user = _repositorio.GetById(id);    
+
+            if (user != null)
+            {
+                return Ok(user);
+            }
+            return NotFound();
         }
 
         [HttpPost]
-        public ActionResult<UserModel> PostUser(PostUsersRequest user)
+        public IActionResult Post([FromBody] PostUsersRequest user)
         {
-            try
-            {        
-              var userAdd = new UserModel
-                {
-                    firstName = user.firstName,
-                    surName = user.surName,
-                    age = user.age,
-                    creationDate = DateTime.UtcNow
-                };
-
-                _context.Users.Add(userAdd);
-                _context.SaveChanges();
-
-                return CreatedAtAction("GetUserId", new UserModel { id = userAdd.id}, userAdd);
-            }
-            catch 
+            if (_repositorio.Create(user))
             {
-                return BadRequest();
+                return Ok(user);
             }
-  
+            return BadRequest();
         }
 
         [HttpPut("{id}")]
-        public ActionResult PutUser(PostUsersRequest user,string id)
+        public IActionResult Put([FromBody] PostUsersRequest user,[FromRoute]string id)
         {
-
-            var userAtual = _context.Users.Find(id);
-
-            if (userAtual == null)
+            
+            if (_repositorio.Update(user, id))
             {
-                return BadRequest();
+                return Ok(user);
             }
-
-            userAtual.firstName = user.firstName;
-            userAtual.surName = user.surName;
-            userAtual.age = user.age;
-            userAtual.creationDate = userAtual.creationDate;
-
-            _context.SaveChanges();
-            return Ok(userAtual);
-
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteUser(string id)
+        public IActionResult Delete([FromRoute] string id)
         {
-            var userAtual = _context.Users.Find(id);
-
-            if (userAtual == null)
-            {
+          
+                if (_repositorio.Delete(id))
+                {
+                return Ok("Usuario Deletado com Sucesso");
+                }
                 return BadRequest();
 
-            }
-            _context.Users.Remove(userAtual);
-            _context.SaveChanges();
-            return Ok("Usuario Deletado com Sucesso");
         }
+
     }
 }
