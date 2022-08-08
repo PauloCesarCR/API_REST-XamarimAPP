@@ -19,12 +19,23 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="Moq" Version="4.18.2" />
+    <PackageReference Include="NEST" Version="7.17.4" />
     <PackageReference Include="Npgsql" Version="6.0.5" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.3" />
+    <PackageReference Include="xunit.assert" Version="2.4.2" />
+    <PackageReference Include="xunit.core" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

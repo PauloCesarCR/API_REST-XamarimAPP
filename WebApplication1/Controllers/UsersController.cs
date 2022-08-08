@@ -20,15 +20,20 @@ namespace WebApplication1.Controllers
         {
             var users = _repositorio.GetAllUsers();
 
-            if (users != null)
+            if (users.Any())
             {
-            return Ok(users);
+                throw new Exception("Nenhum usuario encontrado");
             }
-            return NotFound();
+            return Ok(users);
+
         }
         [HttpGet("{id}")]
         public IActionResult GetById([FromRoute]string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new Exception("id inválido");
+            }
             var user = _repositorio.GetById(id);    
 
             if (user != null)
@@ -41,16 +46,26 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] PostUsersRequest user)
         {
-            if (_repositorio.Create(user))
-            {
-                return Ok(user);
-            }
+
+        if (string.IsNullOrEmpty(user.firstName))
+         {
+           throw new Exception("O Nome é obrigatório");
+        }
+         
+        if (_repositorio.Create(user))
+         {
+           return Ok(user);
+         }
             return BadRequest();
         }
 
         [HttpPut("{id}")]
         public IActionResult Put([FromBody] PostUsersRequest user,[FromRoute]string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new Exception("id inválido");
+            }
             
             if (_repositorio.Update(user, id))
             {
@@ -62,13 +77,17 @@ namespace WebApplication1.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete([FromRoute] string id)
         {
-          
-                if (_repositorio.Delete(id))
-                {
-                return Ok("Usuario Deletado com Sucesso");
-                }
-                return BadRequest();
 
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new Exception("id inválido");
+            }
+
+            if (_repositorio.Delete(id))
+            {
+                return Ok("Usuario Deletado com Sucesso");
+            }
+            return BadRequest();
         }
 
     }
