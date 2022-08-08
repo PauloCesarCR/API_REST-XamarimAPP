@@ -19,11 +19,6 @@ namespace WebApplication1.Controllers
         public IActionResult GetAllUsers()
         {
             var users = _repositorio.GetAllUsers();
-
-            if (users.Any())
-            {
-                throw new Exception("Nenhum usuario encontrado");
-            }
             return Ok(users);
 
         }

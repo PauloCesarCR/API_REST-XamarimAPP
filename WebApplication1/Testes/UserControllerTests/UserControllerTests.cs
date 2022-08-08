@@ -15,15 +15,7 @@ namespace WebApplication1.Testes.UserControllerTests
         {
             UsersController = new UsersController(new Mock<IUsersRepository>().Object);
         }
-
-        [Fact]
-        public void GetAllUsersTest()
-        {
-            var exception = Assert.Throws<Exception>(() => UsersController.GetAllUsers());
-
-            Assert.Equal("Nenhum usuario encontrado", exception.Message);
-
-        }
+    
         [Fact]
         public void GetByIdTests()
         {
