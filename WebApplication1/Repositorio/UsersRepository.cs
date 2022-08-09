@@ -1,4 +1,5 @@
-﻿using WebApplication1.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using WebApplication1.Data;
 using WebApplication1.Models;
 using WebApplication1.Models.Entities.Users;
 
@@ -58,7 +59,7 @@ namespace WebApplication1.Repositorio
         }
 
         public bool Update(PostUsersRequest user, string id)
-        {
+        { 
             try
             {
        
@@ -81,10 +82,11 @@ namespace WebApplication1.Repositorio
 
         public bool Delete(string id)
         {
+
             try
             {
                 var userAtual = _bancocontext.Users.Find(id);
-       
+
                 if (userAtual == null)
                 {
                     return false;

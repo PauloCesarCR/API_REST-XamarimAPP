@@ -1,0 +1,43 @@
+2022-08-08 19:05:23.165 -03:00 [INF] Entity Framework Core 6.0.7 initialized 'BancoContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-08-08 20:39:59.734 -03:00 [INF] Entity Framework Core 6.0.7 initialized 'BancoContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-08-08 20:40:03.127 -03:00 [INF] Executed DbCommand (319ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+2022-08-08 20:40:03.328 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2022-08-08 20:40:04.562 -03:00 [INF] User profile is available. Using 'C:\Users\paulo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-08 20:40:05.536 -03:00 [INF] Now listening on: https://localhost:7180
+2022-08-08 20:40:05.543 -03:00 [INF] Now listening on: http://localhost:5180
+2022-08-08 20:40:05.609 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-08 20:40:05.612 -03:00 [INF] Hosting environment: Development
+2022-08-08 20:40:05.614 -03:00 [INF] Content root path: C:\Users\paulo\Desktop\intelitrader-tecnologia\WebApplication1\
+2022-08-08 20:40:11.110 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7180/index.html - -
+2022-08-08 20:40:13.032 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7180/index.html - - - 200 - text/html;charset=utf-8 1937.7204ms
+2022-08-08 20:40:13.187 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7180/_framework/aspnetcore-browser-refresh.js - -
+2022-08-08 20:40:13.200 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7180/swagger-ui-bundle.js - -
+2022-08-08 20:40:13.221 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7180/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 33.7936ms
+2022-08-08 20:40:13.276 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7180/swagger-ui.css - -
+2022-08-08 20:40:13.294 -03:00 [INF] The file /swagger-ui-bundle.js was not modified
+2022-08-08 20:40:13.301 -03:00 [INF] The file /swagger-ui.css was not modified
+2022-08-08 20:40:13.306 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7180/swagger-ui-bundle.js - - - 304 - application/javascript 106.0790ms
+2022-08-08 20:40:13.332 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7180/swagger-ui.css - - - 304 - text/css 55.4296ms
+2022-08-08 20:40:13.336 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7180/swagger-ui-standalone-preset.js - -
+2022-08-08 20:40:13.339 -03:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2022-08-08 20:40:13.348 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7180/swagger-ui-standalone-preset.js - - - 304 - application/javascript 12.6971ms
+2022-08-08 20:40:13.351 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7180/_vs/browserLink - -
+2022-08-08 20:40:14.769 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7180/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 1417.6267ms
+2022-08-08 20:40:15.096 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7180/swagger/v1/swagger.json - -
+2022-08-08 20:40:16.217 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7180/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1121.4747ms
+2022-08-08 20:40:25.600 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7180/api/Users - -
+2022-08-08 20:40:25.682 -03:00 [INF] Executing endpoint 'WebApplication1.Controllers.UsersController.GetAllUsers (WebApplication1)'
+2022-08-08 20:40:25.736 -03:00 [INF] Route matched with {action = "GetAllUsers", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllUsers() on controller WebApplication1.Controllers.UsersController (WebApplication1).
+2022-08-08 20:40:25.755 -03:00 [INF] Acess a api/Users -> Get
+2022-08-08 20:40:25.780 -03:00 [INF] Executing OkObjectResult, writing value of type 'Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1[[WebApplication1.Models.UserModel, WebApplication1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-08-08 20:40:25.805 -03:00 [INF] Entity Framework Core 6.0.7 initialized 'BancoContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-08-08 20:40:26.742 -03:00 [INF] Executed DbCommand (134ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.age, u."creationDate", u."firstName", u."surName"
+FROM "Users" AS u
+2022-08-08 20:40:27.040 -03:00 [INF] Executed action WebApplication1.Controllers.UsersController.GetAllUsers (WebApplication1) in 1286.5939ms
+2022-08-08 20:40:27.048 -03:00 [INF] Executed endpoint 'WebApplication1.Controllers.UsersController.GetAllUsers (WebApplication1)'
+2022-08-08 20:40:27.083 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7180/api/Users - - - 200 - application/json;+charset=utf-8 1482.7805ms

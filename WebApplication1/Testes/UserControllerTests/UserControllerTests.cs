@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Moq;
 using WebApplication1.Controllers;
 using WebApplication1.Models;
 using WebApplication1.Models.Entities.Users;
@@ -15,7 +16,16 @@ namespace WebApplication1.Testes.UserControllerTests
         {
             UsersController = new UsersController(new Mock<IUsersRepository>().Object);
         }
-    
+
+        [Fact]
+        public void GetAll()
+        {
+            var result = UsersController.GetAllUsers();
+            var okResult = result as ObjectResult;
+
+            Assert.IsType<OkObjectResult>(okResult);
+        }
+
         [Fact]
         public void GetByIdTests()
         {
@@ -30,6 +40,7 @@ namespace WebApplication1.Testes.UserControllerTests
             var exception = Assert.Throws<Exception>(() => UsersController.Post(new PostUsersRequest()));
 
             Assert.Equal("O nome é obrigatório", exception.Message);
+            
         }
 
         [Fact]

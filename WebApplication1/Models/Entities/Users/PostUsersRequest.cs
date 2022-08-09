@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
+﻿
 namespace WebApplication1.Models.Entities.Users
 {
     public class PostUsersRequest
