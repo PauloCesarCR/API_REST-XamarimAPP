@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.MainPage">
+
+    <StackLayout Padding="10">
+        <Frame BackgroundColor="#ff0000" Padding="24" CornerRadius="0">
+            <Label Text="Cadastrar usuario - Intelitrader" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" BackgroundColor="#ff0000"/>
+        </Frame>
+        <StackLayout Orientation="Vertical">
+            <Entry x:Name="FirstName" Keyboard="Text" Placeholder="FirstName" />
+            <Entry x:Name="SurName" Keyboard="Text" Placeholder="SurName" />
+            <Entry x:Name="Age" Keyboard="Numeric" Placeholder="Age" />
+            <Button x:Name="btCadastrar" Text="Cadastrar" Clicked="btCadastrar_Clicked" BackgroundColor="#ff0000" TextColor="White"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

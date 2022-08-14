@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\App2",
+    "\\App2\\App2",
+    "\\App2\\App2.Android",
+    "\\App2\\App2.Android\\Properties",
+    "\\App2\\App2\\Service",
     "\\WebApplication1",
-    "\\WebApplication1\\Models",
-    "\\WebApplication1\\Models\\Entities",
-    "\\WebApplication1\\Models\\Entities\\Users",
-    "\\WebApplication1\\obj",
-    "\\WebApplication1\\Repositorio",
     "\\WebApplication1\\Testes",
     "\\WebApplication1\\Testes\\UserControllerTests",
     "\\WebApplication1\\Views"
   ],
-  "SelectedNode": "\\WebApplication1\\Testes\\UserControllerTests\\UserControllerTests.cs",
+  "SelectedNode": "\\WebApplication1.sln",
   "PreviewInSolutionExplorer": false
 }
